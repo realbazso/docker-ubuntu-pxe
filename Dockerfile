@@ -5,11 +5,13 @@ ENV MIRROR ftp://ftp.ubuntu.com
 
 RUN apt-get -q update
 RUN apt-get -qy install dnsmasq wget iptables nginx
-RUN wget --no-check-certificate https://raw.github.com/jpetazzo/pipework/master/pipework
+#RUN wget --no-check-certificate https://raw.github.com/jpetazzo/pipework/master/pipework
+ADD pipework /pipework
 RUN chmod +x pipework
 RUN mkdir /tftp
-WORKDIR /usr/share/nginx/html
-RUN wget --no-check-certificate https://raw.githubusercontent.com/realbazso/docker-ubuntu-pxe/master/ks.cfg
+#WORKDIR /usr/share/nginx/html
+#RUN wget --no-check-certificate https://raw.githubusercontent.com/realbazso/docker-ubuntu-pxe/master/ks.cfg
+#ADD ks.cfg /usr/share/nginx/html/ks.cfg
 WORKDIR /tftp
 
 RUN wget $MIRROR/ubuntu/dists/$DIST/main/installer-$ARCH/current/images/netboot/ubuntu-installer/$ARCH/linux
