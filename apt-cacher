@@ -1,0 +1,10 @@
+# apt-cacher daemon startup configuration file
+
+# Set to 1 to run apt-cacher as a standalone daemon, set to 0 if you are going
+# to run apt-cacher from /etc/inetd or in CGI mode (deprecated).  Alternatively,
+# invoking "dpkg-reconfigure apt-cacher" should do the work for you.
+#
+AUTOSTART=1
+
+# extra settings to override the ones in apt-cacher.conf
+# EXTRAOPT=" daemon_port=3142 limit=30 "
